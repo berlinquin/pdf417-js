@@ -851,6 +851,13 @@ var PDF417 = {
 	getBarcodeArray: function() {
 		return this.barcode_array;
 	},
+	
+	setTruncated: function(isTruncated) {
+		if (isTruncated)
+			this.stop_pattern = '1';
+		else
+			this.stop_pattern = '111111101000101001';
+	},
 
     /**
      *
