@@ -68,7 +68,8 @@
             var checkbox = document.getElementById("check");
             PDF417.setTruncated(checkbox.checked);
             
-            PDF417.init(textToEncode.value);   
+            var error = document.getElementById("error_level");         
+            PDF417.init(textToEncode.value, Number(error.value));   
 
             var barcode = PDF417.getBarcodeArray();
 
@@ -112,6 +113,20 @@
 <div>
 <br/>
 <form>
+<label for="error_level">Select error correction level:</label>
+<select id="error_level">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2" selected="selected">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="7">8</option>
+</select>
+<br/>
+<br/>
 <label for="check">Make truncated barcode?</label>
 <input type="checkbox" id="check" />
 </form>
